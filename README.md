@@ -5,13 +5,13 @@ This site is a reflection of my journey, skills, and passion for technology.
 
 ## 👨‍💻 About Me
 
-Hi! I'm **Aditya Phadatare**, a passionate **mobile app developer** skilled in both **native (Android/Kotlin)** and **cross-platform (Flutter)** development.  
+Hi! I'm **Aditya Phadatare**, a passionate **mobile app developer** skilled in both **native (JAva/Kotlin)** and **cross-platform (Flutter)** development.  
 I'm currently learning and building full-stack apps, exploring databases, CI/CD, system design, and contributing to open-source projects. 🚀
 
 ### 🛠️ Tech I Work With:
 - **Languages:** Java, Kotlin, Dart, JavaScript
-- **Frameworks:** Flutter, Android (Jetpack), Node.js
-- **Databases:** Firebase, MongoDB, SQLite, Hive
+- **Frameworks:** Flutter, Android (Jetpack), 
+- **Databases:** Firebase, SQLite, Hive
 - **Tools:** Git, GitHub Actions, Fastlane, VS Code, Android Studio
 
 ### 💡 Interests
