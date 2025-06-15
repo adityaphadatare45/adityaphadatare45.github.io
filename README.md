@@ -9,7 +9,7 @@ Hi! I'm **Aditya Phadatare**, a passionate **mobile app developer** skilled in b
 I'm currently learning and building full-stack apps, exploring databases, CI/CD, system design, and contributing to open-source projects. 🚀
 
 ### 🛠️ Tech I Work With:
-- **Languages:** Java, Kotlin, Dart, JavaScript
+- **Languages:** Java, Kotlin, Dart.
 - **Frameworks:** Flutter, Android (Jetpack), 
 - **Databases:** Firebase, SQLite, Hive
 - **Tools:** Git, GitHub Actions, Fastlane, VS Code, Android Studio
