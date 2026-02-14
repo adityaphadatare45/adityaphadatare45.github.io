@@ -12,252 +12,51 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --accent-color: #4a4a4a;
-            --subtext-color: #666666;
-            --link-color: #000000;
-            --font-main: 'Inter', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-            --spacing-unit: 1.5rem;
-            --max-width: 680px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            padding: 2rem 1rem;
-        }
-
-        /* Container */
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding-bottom: 4rem;
-        }
-
-        /* Header & Typewriter */
-        header {
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        h1.typewriter-container {
-            font-family: var(--font-mono);
-            font-size: 1.5rem;
-            font-weight: 500;
-            min-height: 2em; /* Prevents layout shift */
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 1.2em;
-            background-color: var(--text-color);
-            margin-left: 4px;
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: var(--subtext-color);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .social-links a:hover {
-            color: var(--link-color);
-        }
-
-        /* Sections */
-        section {
-            margin-bottom: 3rem;
-            animation: fadeIn 0.8s ease forwards;
-            opacity: 0;
-        }
-
-        /* Stagger animations slightly */
-        section:nth-child(2) { animation-delay: 0.1s; }
-        section:nth-child(3) { animation-delay: 0.2s; }
-        section:nth-child(4) { animation-delay: 0.3s; }
-        section:nth-child(5) { animation-delay: 0.4s; }
-        section:nth-child(6) { animation-delay: 0.5s; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h2 {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--subtext-color);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        /* Content Blocks */
-        .item {
-            margin-bottom: 2rem;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 0.3rem;
-        }
-
-        .item-title {
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-
-        .item-subtitle {
-            font-size: 0.95rem;
-            color: var(--accent-color);
-            font-style: italic;
-        }
-
-        .item-date, .item-location {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--subtext-color);
-        }
-
-        .item-content {
-            font-size: 0.95rem;
-            color: var(--accent-color);
-        }
-
-        ul {
-            list-style: none;
-            margin-top: 0.5rem;
-        }
-
-        li {
-            position: relative;
-            padding-left: 1.2rem;
-            margin-bottom: 0.4rem;
-        }
-
-        li::before {
-            content: "—"; /* Em dash style bullet */
-            position: absolute;
-            left: 0;
-            color: #ccc;
-        }
-
-        /* Skills Tags */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: #f4f4f4;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            color: #333;
-            font-family: var(--font-mono);
-        }
-
-        .skill-category {
-            margin-bottom: 1rem;
-        }
-        
-        .skill-category strong {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        /* Links in text */
-        a.text-link {
-            color: var(--text-color);
-            text-decoration: underline;
-            text-decoration-color: #ccc;
-            text-underline-offset: 3px;
-        }
-
-        a.text-link:hover {
-            text-decoration-color: #000;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .item-header {
-                flex-direction: column;
-                gap: 0.2rem;
-            }
-            .item-date {
-                margin-bottom: 0.5rem;
-            }
-        }
-    </style>
+    
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <h1 class="typewriter-container">
-            <span id="typewriter-text"></span><span class="cursor"></span>
-        </h1>
-        <div class="social-links">
-            <a href="https://github.com/adityaphadatare45" target="_blank"><i class="fab fa-github"></i> Github</a>
-            <a href="mailto:adityaphadatare4545@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-            <!-- Added placeholders if needed -->
-            <!-- <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a> -->
-        </div>
-    </header>
+    <header class="site-header">
 
-    <main>
+    <h1 class="typewriter-container">
+        <span id="typewriter-text"></span>
+        <span class="cursor"></span>
+    </h1>
+
+    <!-- Hamburger Button -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="blog.html">Blogs</a>
+        <a href="thingsImake.html">Stuff I Make</a>
+        <!--<a href="socials.html">Socials</a>-->
+    </nav>
+
+</header>
+  <main>
         <!-- Objective -->
-        <section>
-            <h2>About Me</h2>
-            <p class="item-content">
-                Hi! I'm a passionate mobile app developer skilled in both <strong>native</strong> and <strong>cross-platform (Flutter)</strong> development.
-                I'm currently learning and building full-stack apps, exploring databases, and contributing to open-source projects. 
-                I love designing clean, user-centric UIs and exploring embedded systems.
-            </p>
-        </section>
-
+       <section>
+         <h2>About Me</h2>
+           <p class="item-content">
+             Hi, I'm Aditya.<br>
+           
+             I'm a passionate mobile app developer who loves building things—
+              from mobile applications to hardware-powered solutions.<br>
+              I work with both <strong>native</strong> and <strong>Cross-Platform</strong> apps,
+              and enjoy experimenting with
+             <strong>hardware & electronics</strong>, <strong>embedded systems</strong>,
+             and <strong>Hardware & IoT hacking</strong>.<br>
+              I'm driven by curiosity and the joy of turning ideas into real-world products.
+          </p>
+       </section>
         <!-- Experience -->
         <section>
             <h2>Experience</h2>
@@ -295,7 +94,7 @@
 
         <!-- Projects -->
         <section>
-            <h2>Projects</h2>
+            <h2>Things I Build </h2>
 
             <div class="item">
                 <div class="item-header">
@@ -350,7 +149,7 @@
             <h2>Skills</h2>
             
             <div class="skill-category">
-                <strong>Languages & Frameworks</strong>
+                <strong>The Things That I Know</strong>
                 <div class="skills-grid">
                     <span class="skill-tag">Java</span>
                     <span class="skill-tag">Dart</span>
@@ -365,7 +164,7 @@
             </div>
 
             <div class="skill-category">
-                <strong>Tools & Hardware</strong>
+                <strong>Tools That I Use</strong>
                 <div class="skills-grid">
                     <span class="skill-tag">Git & GitHub</span>
                     <span class="skill-tag">VS Code</span>
@@ -380,47 +179,6 @@
         </section>
     </main>
 </div>
-
-<script>
-    // Typewriter Effect Configuration
-    const phrases = ["Aditya Phadatare", "Mobile App Developer"];
-    const el = document.getElementById("typewriter-text");
-    let sleepTime = 100;
-    let curPhraseIndex = 0;
-
-    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-    const writeLoop = async () => {
-        while (true) {
-            let curWord = phrases[curPhraseIndex];
-
-            // Typing
-            for (let i = 0; i < curWord.length; i++) {
-                el.innerText = curWord.substring(0, i + 1);
-                await sleep(sleepTime);
-            }
-
-            await sleep(2000); // Wait after typing complete
-
-            // Deleting
-            for (let i = curWord.length; i > 0; i--) {
-                el.innerText = curWord.substring(0, i - 1);
-                await sleep(sleepTime / 2); // Delete faster
-            }
-
-            await sleep(500); // Wait before typing next
-
-            // Switch to next phrase
-            if (curPhraseIndex === phrases.length - 1) {
-                curPhraseIndex = 0;
-            } else {
-                curPhraseIndex++;
-            }
-        }
-    };
-
-    writeLoop();
-</script>
-
+<script src="js/site.js"></script>
 </body>
 </html>
