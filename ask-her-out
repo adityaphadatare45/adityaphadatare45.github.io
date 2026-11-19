@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#fff6f1">
+<title>A Tiny Question</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+:root{--cream:#fff7f1;--pink:#ffd9df;--red:#e94f70;--wine:#542536;--ink:#38232b;--muted:#8d6e78;--line:#f2d7dc}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:radial-gradient(#e7aab5 .7px,transparent .7px);background-size:18px 18px;z-index:-1}
+.blob{position:fixed;width:280px;height:280px;border-radius:50%;filter:blur(2px);opacity:.42;z-index:-1;animation:drift 10s ease-in-out infinite alternate}.blob.one{background:#ffdce2;top:-100px;left:-90px}.blob.two{background:#ffe7c9;right:-120px;bottom:-100px;animation-delay:-4s}@keyframes drift{to{transform:translate(35px,25px) scale(1.12)}}
+main{min-height:100svh;display:grid;place-items:center;padding:30px 16px}.card{width:min(100%,650px);background:rgba(255,255,255,.86);border:1px solid rgba(233,79,112,.16);border-radius:30px;padding:clamp(24px,6vw,54px);text-align:center;box-shadow:0 24px 80px rgba(100,43,60,.10);backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #f4c6ce;background:#fff7f8;color:#a63b56;border-radius:99px;padding:8px 13px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.spark{display:inline-block;animation:twinkle 1.8s infinite}@keyframes twinkle{50%{transform:rotate(20deg) scale(1.3)}}
+h1,h2{font-family:'Playfair Display',serif;color:var(--wine);line-height:1.08;letter-spacing:-.035em}h1{font-size:clamp(42px,8vw,66px);margin:22px 0 14px}h2{font-size:clamp(31px,6vw,47px);margin:17px 0 14px}p{color:var(--muted);font-size:15px;line-height:1.75;margin:0 auto;max-width:470px}.sub{font-size:12px;color:#ad8791;margin-top:16px}
+.actions{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin-top:27px}button{font:700 14px 'DM Sans',sans-serif;border:0;border-radius:14px;padding:14px 19px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}button:hover{transform:translateY(-3px)}button:active{transform:translateY(0) scale(.98)}.primary{background:var(--red);color:white;box-shadow:0 9px 22px rgba(233,79,112,.23)}.primary:hover{box-shadow:0 13px 28px rgba(233,79,112,.3)}.secondary{background:#fff0f2;color:#9c4358;border:1px solid #f4cbd2}.screen{display:none;animation:arrive .48s cubic-bezier(.2,.8,.2,1) both}.screen.active{display:block}@keyframes arrive{from{opacity:0;transform:translateY(14px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+.emoji{font-size:52px;display:block;margin:8px auto 14px;animation:bob 2.5s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-7px) rotate(4deg)}}.progress{display:flex;gap:6px;justify-content:center;margin-bottom:24px}.progress span{width:23px;height:5px;border-radius:9px;background:#f5dce1;transition:width .3s,background .3s}.progress span.on{width:39px;background:var(--red)}
+.note{margin:22px auto 0;padding:13px 15px;background:#fff8f5;border:1px dashed #efb8c2;border-radius:15px;color:#9d6875;font-size:13px;max-width:440px}.food-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:25px auto 0;max-width:460px}.food{padding:0!important;overflow:hidden;background:#fff8f7;border:1px solid var(--line);color:var(--wine);text-align:left}.food .pic{height:116px;display:grid;place-items:center;font-size:46px;background:linear-gradient(135deg,#fff0f1,#fff5e9)}.food .food-name{display:block;padding:12px 13px;font-size:14px}.food.selected{border:2px solid var(--red);background:#fff0f2;box-shadow:0 6px 18px #e94f7020}.food.selected .food-name:after{content:' ✓';color:var(--red)}
+.choices{display:grid;gap:10px;max-width:420px;margin:24px auto 0}.choices button{width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;background:#fff8f7;color:var(--wine);border:1px solid var(--line)}.choices button:hover{background:#fff0f2;border-color:#edabb8}
+.rps{display:flex;justify-content:center;gap:12px;margin:25px auto 0}.rps button{width:94px;height:94px;padding:8px;background:#fff8f7;border:1px solid var(--line);font-size:34px}.rps button span{display:block;font-size:11px;margin-top:5px;color:var(--muted);font-weight:700}.rps button.selected{border:2px solid var(--red);background:#fff0f2}.final-mark{font-size:65px;animation:pop .6s cubic-bezier(.2,1.5,.5,1)}@keyframes pop{from{transform:scale(.2) rotate(-20deg);opacity:0}to{transform:scale(1);opacity:1}}
+footer{font-size:11px;color:#b99aa2;margin-top:27px}.floaties{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}.floaty{position:absolute;bottom:-30px;opacity:0;animation:floatUp 5s linear forwards;font-size:18px}@keyframes floatUp{10%{opacity:.8}100%{transform:translateY(-110vh) rotate(35deg);opacity:0}}.confetti{position:fixed;top:-12px;width:9px;height:14px;border-radius:2px;z-index:10;pointer-events:none;animation:fall 3.2s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.1}}
+@media(max-width:480px){.card{border-radius:24px}.actions{flex-direction:column}.actions button{width:100%}.food .pic{height:95px}.rps{gap:7px}.rps button{width:84px;height:84px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style></head>
+<body><div class="blob one"></div><div class="blob two"></div><div class="floaties" id="floaties"></div>
+<main><section class="card" aria-live="polite">
+<div class="progress"><span class="on"></span><span></span><span></span></div>
+<div class="screen active" data-screen="0"><span class="pill"><span class="spark">✦</span> classified-ish</span><span class="emoji">🕵️‍♀️</span><h1>Heyy girl!</h1><p>Need approximately <strong>28 seconds</strong> of your precious time. Nothing serious, just some random questions.</p><div class="actions"><button class="primary" onclick="show(1)">Okay, go ahead 🙄</button></div><div class="sub">Don't overthink it. (Says the person who made a whole website.)</div></div>
+<div class="screen" data-screen="1"><span class="pill">daydream mode · 01</span><span class="emoji">💭</span><h2>Imagine this...</h2><p>You + me + your favourite food spot + 2–3 plates of pani puri (because one is never enough 😌) + a little dessert break after all that food.</p><div class="note">Honestly, sounds like a pretty good day, doesn't it? 👀</div><h2 style="font-size:25px;margin-top:25px">Would you sign up for this imaginary plan?</h2><div class="choices"><button onclick="finishAbsolutely()"><span>Absolutely!</span><span>✨</span></button><button onclick="show(2)"><span>Depends on the dessert 👀</span><span>🍰</span></button><button onclick="show(3)"><span>Who's paying? 😂</span><span>💸</span></button></div></div>
+<div class="screen" data-screen="2"><span class="pill">important dessert research</span><span class="emoji">🍰</span><h2>Okay, dessert expert...</h2><p>Choose your post-pani-puri reward. This is a very serious and legally binding dessert survey. (Not really.)</p><div class="food-grid">
+<button class="food" data-dessert="Brownie" onclick="chooseDessert(this)"><span class="pic">🍫</span><span class="food-name">Brownie</span></button>
+<button class="food" data-dessert="Ice cream" onclick="chooseDessert(this)"><span class="pic">🍨</span><span class="food-name">Ice cream</span></button>
+<button class="food" data-dessert="Pastry" onclick="chooseDessert(this)"><span class="pic">🧁</span><span class="food-name">Pastry</span></button>
+<button class="food" data-dessert="Cheesecake" onclick="chooseDessert(this)"><span class="pic">🍰</span><span class="food-name">Cheesecake</span></button>
+</div><div class="actions"><button class="primary" id="dessertNext" disabled onclick="finishDessert()">Excellent choice →</button><button class="secondary" onclick="show(1)">Back</button></div><div class="sub">Choose wisely. Your dessert reputation is at stake.</div></div>
+<div class="screen" data-screen="3"><span class="pill">the important financial discussion</span><span class="emoji">🤑</span><h2>Who's paying though?</h2><p>Ah yes. The question that separates the dreamers from the economists.</p><div class="note">I propose a fair, highly professional solution...</div><h2 style="font-size:27px;margin-top:22px">Rock. Paper. Scissors. 👀</h2><p>Pick your weapon. Winner gets bragging rights. Loser gets... well, we'll negotiate.</p><div class="rps"><button onclick="playRPS(this,'Rock')">✊<span>Rock</span></button><button onclick="playRPS(this,'Paper')">✋<span>Paper</span></button><button onclick="playRPS(this,'Scissors')">✌️<span>Scissors</span></button></div><div class="note" id="rpsResult">Choose one. I promise I'm a completely unbiased referee. 😂</div><div class="actions"><button class="secondary" onclick="show(1)">Back to the plan</button></div></div>
+<div class="screen" data-screen="4"><div class="final-mark">🎉</div><span class="pill">case closed</span><h2>That's all I wanted to know!</h2><p>You've officially made my day. No further questions, your honour. 😂❤️</p><div class="note">Now I'll stop being suspiciously mysterious. For approximately five minutes.</div><div class="actions"><button class="primary" onclick="copyAbsolutelyShare()">Copy this & share it with the person who sent you this 💌</button><button class="secondary" onclick="restart()">Replay the investigation ↻</button></div><div class="sub" id="absolutelyCopyNote">A tiny message to send back 😉</div></div>
+<div class="screen" data-screen="5"><div class="final-mark">🍰</div><span class="pill">dessert preference saved</span><h2 id="dessertTitle">Excellent taste!</h2><p id="dessertText">Your dessert choice has been recorded.</p><div class="note">Now we have a food spot, pani puri, and dessert. This imaginary plan is getting suspiciously realistic. 👀</div><div class="actions"><button class="primary" onclick="show(6)">So... should we make it real? 💌</button><button class="secondary" onclick="show(2)">Change dessert</button></div></div>
+<div class="screen" data-screen="6"><div class="final-mark">🥹</div><span class="pill">one tiny follow-up</span><h2>Should we actually make this plan happen?</h2><p>No pressure, just thought it could be a really fun day.</p><div class="choices"><button onclick="setFinal('Yesss! Let’s make a plan. ✨')"><span>Okay, let's do it!</span><span>💗</span></button><button onclick="setFinal('Maybe we should. I’ll think about it 👀')"><span>Maybe we should 👀</span><span>🌷</span></button><button onclick="setFinal('Let me check my calendar. 😂')"><span>Let me check my calendar 😂</span><span>📅</span></button></div></div>
+<div class="screen" data-screen="7"><div class="final-mark">💌</div><span class="pill">message received</span><h2>I'll take that!</h2><p id="lastReply">Yesss! Let’s make a plan. ✨</p><div class="note">No pressure, no awkwardness. Just good food and hopefully some excellent company. ❤️</div><div class="actions"><button class="primary" onclick="copyReply()">Copy your reply</button><button class="secondary" onclick="restart()">Replay</button></div></div>
+<div class="screen" data-screen="8"><div class="final-mark">🤝</div><span class="pill">financial agreement pending</span><h2 id="rpsTitle">A respectable choice.</h2><p id="rpsCopy">The result is in.</p><div class="note">Either way, I think we should still go. We can settle the bill like responsible adults. Or just order dessert first. 😂</div><div class="actions"><button class="primary" onclick="show(6)">Continue the plan 💌</button><button class="secondary" onclick="show(3)">Rematch!</button></div></div>
+<footer>made with a little courage & an unreasonable amount of fear</footer>
+</section></main>
+<script>
+let selectedDessert='',lastReply='Yesss! Let’s make a plan. ✨';
+const screens=[...document.querySelectorAll('.screen')],bars=[...document.querySelectorAll('.progress span')];
+function show(n){screens.forEach((s,i)=>s.classList.toggle('active',i===n));bars.forEach((b,i)=>b.classList.toggle('on',i<=Math.min(n,2)));window.scrollTo({top:0,behavior:'smooth'});if(n===1||n===2||n===3)makeFloaty();}
+function finishAbsolutely(){show(4);confetti();}
+
+async function copyAbsolutelyShare(){
+ const message="I said ABSOLUTELY! ✨ Now when are we making this pani puri + dessert plan happen? 😂❤️";
+ const note=document.getElementById('absolutelyCopyNote');
+ const button=event.currentTarget;
+ try {
+   if(navigator.clipboard && window.isSecureContext){
+     await navigator.clipboard.writeText(message);
+   } else {
+     const field=document.createElement('textarea');
+     field.value=message;
+     field.setAttribute('readonly','');
+     field.style.position='fixed';
+     field.style.opacity='0';
+     field.style.left='-9999px';
+     document.body.appendChild(field);
+     field.select();
+     field.setSelectionRange(0, field.value.length);
+     const copied=document.execCommand('copy');
+     field.remove();
+     if(!copied) throw new Error('Clipboard copy was not available');
+   }
+   note.textContent='Copied to clipboard! Now share it with the person who sent you this. 💌';
+   const original=button.textContent;
+   button.textContent='Copied! ✓';
+   setTimeout(()=>button.textContent=original,2200);
+ } catch(error) {
+   note.textContent='Copy was blocked by your browser. Please select and copy this message: '+message;
+ }
+}
+function chooseDessert(btn){document.querySelectorAll('.food').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');selectedDessert=btn.dataset.dessert;document.getElementById('dessertNext').disabled=false;}
+function finishDessert(){if(!selectedDessert)return;document.getElementById('dessertTitle').textContent='Excellent taste!';document.getElementById('dessertText').textContent=selectedDessert+' it is. Your dessert preference has officially been recorded. I see you have impeccable taste. 😌';show(5);}
+function playRPS(btn,choice){document.querySelectorAll('.rps button').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');const options=['Rock','Paper','Scissors'],computer=options[Math.floor(Math.random()*3)];let result=choice===computer?'It’s a tie! Clearly, destiny refuses to pick a payer. 😂':((choice==='Rock'&&computer==='Scissors')||(choice==='Paper'&&computer==='Rock')||(choice==='Scissors'&&computer==='Paper'))?'You win! I guess I owe you one. 😌':'I win! Don’t worry, I’ll try not to abuse this power. 😎';document.getElementById('rpsResult').textContent='You picked '+choice+'. I picked '+computer+'. '+result;document.getElementById('rpsTitle').textContent=choice===computer?'A dramatic tie!':result.startsWith('You win')?'Look who won!':'Well, well, well...';document.getElementById('rpsCopy').textContent=result+' Best of three?';setTimeout(()=>show(8),900);}
+function setFinal(msg){lastReply=msg;document.getElementById('lastReply').textContent=msg;show(7);if(msg.startsWith('Yesss'))confetti();}
+function copyReply(){const text=lastReply;if(navigator.clipboard?.writeText){navigator.clipboard.writeText(text).then(()=>document.getElementById('lastReply').textContent='Copied! '+text).catch(()=>document.getElementById('lastReply').textContent=text);}else document.getElementById('lastReply').textContent=text;}
+function restart(){selectedDessert='';document.querySelectorAll('.food').forEach(x=>x.classList.remove('selected'));document.getElementById('dessertNext').disabled=true;show(0)}
+function makeFloaty(){const el=document.createElement('span');el.className='floaty';el.textContent=['♥','✦','♡','✿'][Math.floor(Math.random()*4)];el.style.left=Math.random()*95+'vw';el.style.animationDuration=(4+Math.random()*3)+'s';document.getElementById('floaties').appendChild(el);setTimeout(()=>el.remove(),7500)}
+setInterval(()=>{if(Math.random()>.35)makeFloaty()},1900);
+function confetti(){for(let i=0;i<75;i++){const c=document.createElement('i');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.animationDelay=Math.random()*.8+'s';c.style.background=['#e94f70','#f6b7c2','#f4c879','#9e6478','#f28f9e'][i%5];document.body.appendChild(c);setTimeout(()=>c.remove(),4200)}}
+</script></body></html>
